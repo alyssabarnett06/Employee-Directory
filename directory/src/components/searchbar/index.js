@@ -1,27 +1,15 @@
-import React, { Component } from "react";
-import "./style.css";
+import React from "react";
 
+function searchBar(props){
 
-function Searchbar(props) {
-  return (
-    <form>
-    <div className="form-group">
-      <input
-        value={props.search}
-        onChange={props.handleInputChange}
-        name="employee"
-        type="text"
-        className="form-control"
-        placeholder="Search for an employee by name"
-        id="search"
-      />
-      <button onClick={props.handleFormSubmit} className="btn btn-primary mt-3">
-        Search
-      </button>
-    </div>
-  </form>
-  )
+    return(
+        
+        <div className=" text-center mx-4 my-3">
+          <span>Search: </span>
+        <input type='text' size="85" name="search" onChange={props.updateSearch}/>
+      </div>
+        
+    )
+
 }
-
-
-export default Searchbar;
+export default searchBar;

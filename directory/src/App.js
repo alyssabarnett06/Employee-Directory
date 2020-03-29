@@ -1,89 +1,105 @@
 import React, { Component } from "react";
-import Header from "./components/Header";
-import './App.css';
+import EmpInfo from "./components/EmployeeInfo";
+import Wrapper from "./components/Wrapper";
+import SearchBar from "./components/RadioOptions";
+import RadioOptions from "./components/RadioOptions";
+import SortButtons from "./components/SortButtons";
 import employees from "./employees.json";
-import Searchbar from "./components/Searchbar";
-import Tbl from "./components/Tbl";
-
 
 class App extends Component {
 
-  // setting initial state
   state = {
     employees,
-    search: ""
+    search: "",
+    selectedOption: 'all',
   };
 
- findEmployee = emp => {
-   console.log(emp);
-  //  -1 with .indexof means whatever you're looking for is not there--so by saying !== whatever you're returning whatever you're searching for if it IS in the directory
-   if ((emp.name).indexOf(this.state.search) !== -1) {
-    return emp;
-    // to do: toLowerCase both emp.name and this.search.state so that it won't snag if someone doesn't type it in just right thing
-   } 
-
- }
-
-  // When the form is submitted, search the employees.json for `this.state.search`
-  handleFormSubmit = event => {
-
-    event.preventDefault();
-    const filterEmp = employees.filter(this.findEmployee);
-    console.log("search"+ this.state.search);
-    this.setState({ employees: filterEmp });
-    }
-  
-
-  handleInputChange = event => {
-    console.log(event.target.value);
-    this.setState({ search: event.target.value })
+  updateSearch = e => {
+    let name = e.target.name;
+    this.setState({
+      [name]: e.target.value
+    });
   };
 
- 
+  sortFirstName = e => {
+    let copy = [...this.state.employees];
+    copy.sort((a,b)=>{
+      var nameA = a.name.toUpperCase(); 
+      var nameB = b.name.toUpperCase(); 
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+
+      return 0;
+    })
+    this.setState({employees: copy})
+  }
+
+  sortLastName = e => {
+    let copy = [...this.state.employees];
+
+    copy.sort((a,b)=>{
+
+      let aFirst = a.name.split(" ");
+      let bFirst = b.name.split(" ");
+      let aLast = aFirst[aFirst.length -1];
+      let bLast = bFirst[bFirst.length -1];
+
+      if(aLast < bLast) return -1;
+      if(aLast > bLast) return 1;
+      return 0;
+    })
+    this.setState({employees: copy})
+  }
 
 
-  // function for sorting employees in alphabetical order
+  render() {
 
-
-  // we want to map over employees and render a row for each employee
-   render () {
+    // allows the search bar and radio buttons to work
+    let filteredEmps = this.state.employees.filter(
+      (employee) => {
+        let checked;
+        if(this.state.selectedOption === "all" || this.state.selectedOption === employee.empType) checked = true;
+        else checked = false;
+        //let checked = this.state.selectedOption === "all" || this.state.selectedOption === employee.empType
+        return employee.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 && checked;      
+       }
+    );
+    
     return (
-      <div className="container">
-        <Header>
-          <h1>Employee Directory</h1>
-        </Header>
+      <div>
+        <SortButtons
+         sortFirstName={this.sortFirstName}
+         sortLastName={this.sortLastName}
+       />
 
-        <Searchbar 
-        search={this.state.search}
-        handleFormSubmit={this.handleFormSubmit}
-        handleInputChange={this.handleInputChange}
+        <SearchBar
+         updateSearch={this.updateSearch}
         />
 
-        <table>
-
-                <tr>
-                    <th>ID</th>
-                    <th>Pic</th>
-                    <th>Name <button type="button" className="btn btn-primary">sort</button></th>
-                    <th>Phone</th>
-                    <th>Email</th>
-                </tr>
-                </table>
-        {this.state.employees.map(employee => (
-        <Tbl
-          id ={employee.id}
-          key={employee.id}
-          name={employee.name}
-          image={employee.image}
-          phone={employee.phone}
-          email={employee.email}
+        <RadioOptions
+         selectedOption={this.state.selectedOption}
+          updateSearch = {this.updateSearch}
         />
-        ))}
+    
+        <Wrapper>
+          {filteredEmps.map(employee => (
+            <EmpInfo
+              id={employee.id}
+              key={employee.id}
+              name={employee.name}
+              department={employee.department}
+              empType={employee.empType}
+            />
+           ))}
+        </Wrapper>
+      
       </div>
-
     );
   }
 }
-
 
 export default App;
