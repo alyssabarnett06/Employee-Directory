@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import EmpInfo from "./components/EmployeeInfo";
 import Wrapper from "./components/Wrapper";
-import SearchBar from "./components/RadioOptions";
+import SearchBar from "./components/SearchBar";
 import RadioOptions from "./components/RadioOptions";
 import SortButtons from "./components/SortButtons";
 import employees from "./employees.json";

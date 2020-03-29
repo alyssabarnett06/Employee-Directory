@@ -13,7 +13,3 @@ function sortButtons(props){
 
 }
 export default sortButtons;
-       
-       
-       
-       

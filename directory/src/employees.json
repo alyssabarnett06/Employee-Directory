@@ -3,56 +3,50 @@
       "id": 1,
       "name": "Ashley Auberry",
       "image": "https://cdn.pixabay.com/photo/2017/06/01/00/44/smiling-2362136_960_720.jpg",
-      "phone": "1-111-1111",
-      "email": "ash@web.com"
+      "department": "IT",
+      "empType": "Full Time"
     },
     {
-      "id": 2,
-      "name": "Bre Maddox",
-      "image": "https://cdn.pixabay.com/photo/2019/11/18/10/49/office-4634538_960_720.jpg",
-      "phone": "1-111-1111",
-      "email": "bre@web.com"
-    },
-    {
-      "id": 3,
-      "name": "Courtney Nichols",
-      "image": "https://cdn.pixabay.com/photo/2018/01/18/17/49/purchase-3090838_960_720.jpg",
-      "phone": "1-111-1111",
-      "email": "court@web.com"
-    },
-    {
-      "id": 4,
-      "name": "Joe Shmoe",
-      "image": "https://cdn.pixabay.com/photo/2016/01/30/16/11/employee-1169923_960_720.jpg",
-      "phone": "1-111-1111",
-      "email": "joe@web.com"
-    },
-    {
-      "id": 5,
-      "name": "Taylor Hall",
-      "image": "https://cdn.pixabay.com/photo/2020/02/02/17/12/business-4813612_960_720.jpg",
-      "phone": "1-111-1111",
-      "email": "tay@web.com"
-    },
-    {
-      "id": 6,
-      "name": "Phil Spalding",
-      "image": "https://cdn.pixabay.com/photo/2018/01/18/17/48/purchase-3090818_960_720.jpg",
-      "phone": "1-111-1111",
-      "email": "phil@web.com"
-    },
-    {
-      "id": 7,
-      "name": "Jessica Raikes",
-      "image": "https://cdn.pixabay.com/photo/2019/01/19/17/52/headshots-3942187_960_720.jpg",
-      "phone": "1-111-1111",
-      "email": "jess@web.com"
-    },
-    {
-      "id": 8,
-      "name": "Tabitha Greathouse",
-      "image": "https://cdn.pixabay.com/photo/2019/10/04/13/40/woman-4525714_960_720.jpg",
-      "phone": "1-111-1111",
-      "email": "tabitha@web.com"
-    }
-  ]
+        "id": 2,
+        "name": "Bre Maddox",
+        "image": "https://cdn.pixabay.com/photo/2018/01/18/17/49/purchase-3090838_960_720.jpg",
+        "department": "IT",
+        "empType": "Full Time"
+      },
+      {
+        "id": 3,
+        "name": "Jessica Raikes",
+        "image": "https://cdn.pixabay.com/photo/2020/02/02/17/12/business-4813612_960_720.jpg",
+        "department": "HR",
+        "empType": "Full Time"
+      },
+      {
+        "id": 4,
+        "name": "Taylor Hall",
+        "image": "https://cdn.pixabay.com/photo/2019/01/19/17/52/headshots-3942187_960_720.jpg",
+        "department": "HR",
+        "empType": "Part Time"
+      },
+      {
+        "id": 5,
+        "name": "Courtney Nichols",
+        "image": "https://cdn.pixabay.com/photo/2019/10/04/13/40/woman-4525714_960_720.jpg",
+        "department": "Customer Service",
+        "empType": "Full Time"
+      },
+      {
+        "id": 6,
+        "name": "Phil Spalding",
+        "image": "https://cdn.pixabay.com/photo/2019/11/18/10/49/office-4634538_960_720.jpg",
+        "department": "Customer Service",
+        "empType": "Part Time"
+      },
+      {
+        "id": 7,
+        "name": "Adam Moran",
+        "image": "https://cdn.pixabay.com/photo/2018/01/18/17/48/purchase-3090818_960_720.jpg",
+        "department": "Hospitality",
+        "empType": "Part Time"
+      }
+    ]
+      
